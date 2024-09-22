@@ -45,7 +45,7 @@ class Slider (models.Model):
     title = models.CharField(max_length=100)
     image = models.FileField (upload_to="images")
     is_active = models.BooleanField(default=False)
-    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, blank=True)
+    course = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, blank=True, default=1)
     
     def __str__(self): 
         return f"{self.title}"

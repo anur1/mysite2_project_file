@@ -13,7 +13,6 @@ urlpatterns = [
     path('kurslar/', include('courses.urls')),
     path('', include('pages.urls')), 
     path('account/', include('account.urls')),
-    path('froala_editor/', include('froala_editor.urls')),
     path('summernote/', include('django_summernote.urls')),
 
 

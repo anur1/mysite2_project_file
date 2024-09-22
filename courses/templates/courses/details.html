@@ -15,7 +15,7 @@
         <div class="container mt-3">
                 <div class="row">
                             <!--Menu-->
-                    <div class="col-2" style="border:dashed; background-color:Lime">
+                    <div class="col-2" style=" background-color:silver">
 
                <!--     {% include 'courses/partials/_categories.html' %}-->
                <img   class="img-fluid rounded"  src="{{course.image.url}}"      alt="course.title"   />
@@ -23,12 +23,8 @@
 
                        </div>
 
-                <div class="col-1" style="">
-                                Boş alan
-                   
-                </div>
         
-                <div class="col-9" style="border:dotted; background:#BE6EFD">
+                <div class="col-10" style=" background:lightsteelblue">
                 <!--Content-->
                         <h1 class="h3" >{{course.title}}  </h1>
                         <p>{{course.subtitle}}</p>   <!--  #ckeditor7-->
@@ -36,7 +32,7 @@
                 </div>
                 <div class="row">
                         <div class="col-12">
-                                <p>{{course.description|safe}}</p>  <!--|course.description|safe  #ckeditor6-->
+                                <p>{{course.content|safe}}</p>  <!--|course.description|safe  #ckeditor6-->
 
                         </div>
                 </div>
