@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Course, Category, Slider
 from django_summernote.admin import SummernoteModelAdmin #summernote1
-
+#%pip install django-summernote #summernote0
 # Register your models here.
 
 
