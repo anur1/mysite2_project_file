@@ -1,0 +1,3 @@
+DEPLOY: Slider Modelinde dropdown default seçme eklenecek.
+Slider'da seçili kurs bilgisi database'den silinirse site hata veriyor. 
+
