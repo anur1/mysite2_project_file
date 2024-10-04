@@ -9,25 +9,21 @@
 
 
 
-
-
 {% block content %}
         <div class="container mt-3"  >
                 <div class="row">
                             <!--Menu-->
-                    <div class="col-2" style="border:dashed; background-color:Lime  ">
+                    <div class="col-3 bg-gradient bg-info rounded"  >
 
                     {% include 'courses/partials/_categories.html' %}
+                                    <!--Slider-->
+                {% include "courses/partials/_slider.html" %}
                        </div>
 
-                <div class="col-1" style="">
-                                Boş alan
-                   
-                </div>
+
         
-                <div class="col-9" style="border:dotted; background:#BE6EFD"> 
-                <!--Slider-->
-                {% include "courses/partials/_slider.html" %}
+                <div class="col-9  rounded" style="background-color:aquamarine;"> 
+
                 
                 <!--Content-->
                 <h2>Bütün aktif kurslarımıza gözatın. </h2>

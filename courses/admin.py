@@ -9,14 +9,14 @@ from django_summernote.admin import SummernoteModelAdmin #summernote1
 
 @admin.register(Course)
 class CourseAdmin(SummernoteModelAdmin):
-    list_display = ("title", "slug", "description",
+    list_display = ("title", "slug", 
                     "isActive", "category_list", "isHome",)
     list_display_links = ("title", "slug",)
     prepopulated_fields = {"slug": ("title",), }
-    list_filter = ("title", "slug", "description", "isActive","isHome" )
+    list_filter = ("title", "slug",  "isActive","isHome" )
     list_editable = ("isActive", "isHome")
-    search_fields = ("title", "description")
-    summernote_fields = ('content','description_summernote')  #summernote-editor0
+    search_fields = ("title", )
+    summernote_fields = ('content',)  #summernote-editor0
 
     def category_list(self, obj):
         html = ""

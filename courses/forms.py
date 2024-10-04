@@ -39,16 +39,20 @@ class CourseAddForm (forms.ModelForm):
         }
         widgets = {
             "title": TextInput(attrs={"class":"form-control"}),
-            "description": Textarea(attrs={"class":"form-control"}),
+            "subtitle": TextInput(attrs={"class":"form-control"}),
+            "content": Textarea(attrs={"class":"form-control"}),
             #"imageUrl": TextInput(attrs={"class":"form-control"}),
             "slug": TextInput(attrs={"class":"form-control"}),
+            "categories": SelectMultiple(attrs={"class":"form-control"}),
+           
+
         }
         error_messages= {
             "title": {
                 "required": "kurs başlığı girmelisiniz.",
                 "max_length": "en fazla 50 karakter girebilirsiniz."
             },
-            "description": {
+            "content": {
                 "required": "kurs için bir açıklama girmelisiniz.",
 }
         }
@@ -69,7 +73,7 @@ class CourseEditForm (forms.ModelForm):
         }
         widgets = {
             "title": TextInput(attrs={"class":"form-control"}),
-            "description": Textarea(attrs={"class":"form-control"}),
+            "content": Textarea(attrs={"class":"form-control"}),
             #"imageUrl": TextInput(attrs={"class":"form-control"}),
             "slug": TextInput(attrs={"class":"form-control"}),
             "categories": SelectMultiple(attrs={"class":"form-control"}),

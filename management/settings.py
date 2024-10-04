@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
-import os  #ckeditor0
+import os 
 from os import getenv   #secret key için eklendi
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,12 +50,11 @@ INSTALLED_APPS = [
     'courses',
     'pages',
     'account',
-    'ckeditor', #ckeditor5
 
 ]
 
 #sonradan eklenenler
-INSTALLED_APPS += ('django_summernote', ) #summernote-editor3
+INSTALLED_APPS += ('django_summernote', ) #summernote3
 
 
 MIDDLEWARE = [
@@ -143,8 +142,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-#STATIC_ROOT = BASE_DIR / 'static' ## 11 agustos ckeditor icin eklendi
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   ## 11 agustos ckeditor icin eklendi
 
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'  #summernote-editor3
@@ -174,5 +171,3 @@ MESSAGE_TAGS={   ##sayfaya gönderilen mesajların html class'ını bootstrap cl
     messages.ERROR:"alert-danger",
 }
 
-
-#CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery.min.js')  #ckeditor

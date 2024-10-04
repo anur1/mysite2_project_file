@@ -1,102 +1,71 @@
-   {% load static  %}
-   
+{% load static %}
 
-    <nav class= "navbar navbar-expand-lg bg-light navbar-dark font-weight-bold h8 rounded sticky-top"  >
-
-        <h4 style="color:green">__</h4  >
-        <img src="{% static 'img/bjklogo.jpg' %}" align= "center" alt="" width="30" height="30"  >
-        <strong> <a href="{% url "index" %}" class="navbar-brand text-info  font-weight-bold "  >NavBar</a> </strong> 
-        <h4>__</h4>
-
-        <div class="container bg-secondary h9 border border-info border-2 rounded md-1"> 
-             
-            <!--toggle button-->
-            <button class="navbar-toggler" type = "button" data-bs-toggle="collapse" data-bs-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-expand-lg bg-light navbar-dark font-weight-bold h8 rounded sticky-top">
+  <h4 style="color:green">__</h4>
+  <img src="{% static 'img/bjklogo.jpg' %}" align="center" alt="" width="30" height="30" />
+  <strong><a href="{% url 'index' %}" class="navbar-brand text-info font-weight-bold">NavBar</a></strong>
+  <h4>__</h4>
 
 
-            <div class="collapse navbar-collapse" id="navbar"> <!--id ile toglle bar target aynı olmalı-->
+  <div class="container bg-secondary h9 border border-info border-3 rounded md-1">
+    <!-- toggle button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"><span class="navbar-toggler-icon"></span></button>
 
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'index' %}" class="nav-link">Kurslar</a>
-                    </li>
+    <div class="collapse navbar-collapse" id="navbar">
+      <!-- id ile toglle bar target aynı olmalı -->
 
-                    {% if  user.is_superuser %}
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a href="{% url 'index' %}" class="nav-link text-info">Kurslar</a>
+        </li>
 
-                        <li class="nav-item">
-                            <a href="{% url "add_course" %}" class="nav-link">Admin Kurs Ekle</a>
-                        </li>
+        {% if user.is_superuser %}
+          <li class="nav-item">
+            <a href="{% url 'add_course' %}" class="nav-link text-info">Admin Kurs Ekle</a>
+          </li>
 
+          <li class="nav-item">
+            <a href="{% url 'course_list' %}" class="nav-link text-info">Admin Kurs Listesi</a>
+          </li>
 
-                        <li class="nav-item">
-                            <a href="{% url "course_list" %}" class="nav-link">Admin Kurs Listesi  </a>
-                        </li>
+          <li class="nav-item">
+            <a href="/admin" class="nav-link text-info">Admin Panel</a>
+          </li>
+        {% endif %}
+      </ul>
 
-                        <li class="nav-item">
-                            <a href="/admin" class="nav-link">Admin Panel</a>
-                        </li>
+      <!-- login-logout-register nav -->
+      <ul class="navbar-nav me-2">
+        <!-- giriş yapmış olanlar logout'u görür -->
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="#" class="nav-link">Hoş Geldiniz, {{ user.username }}</a>
+          </li>
 
-                    {% endif %}
+          <li class="nav-item">
+            <a href="{% url 'change_password' %}" class="nav-link text-info">Parola Güncelleme</a>
+          </li>
 
+          <li class="nav-item">
+            <a href="{% url 'user_logout' %}" class="nav-link text-info">Logout</a>
+          </li>
 
-                </ul>   
+          <!-- giriş yapmamış olanlar login veya register'ı görür -->
+        {% else %}
+          <li class="nav-item">
+            <a href="{% url 'user_login' %}" class="nav-link text-info">Login</a>
+          </li>
 
-                <!--login-logout-register nav-->
-                <ul class="navbar-nav me-5">
+          <li class="nav-item">
+            <a href="{% url 'user_register' %}" class="nav-link text-info">Register</a>
+          </li>
+        {% endif %}
+      </ul>
 
-                    <!--giriş yapmış olanlar logout'u görür-->
-                    {% if user.is_authenticated %}
-
-                    <li class="nav-item"> 
-                        <strong>
-                        <a href="#" class="nav-link"style="color:green">Hoş Geldiniz, {{user.username}}</a>  </strong>    </li>
-                    
-
-
-                    <li class="nav-item"> <strong> 
-                        <a href="{% url "change_password" %}" class="nav-link" style="color:orange">Parola Güncelleme </a>
-                    </strong>         </li>
-                    
-
-
-
-                    <li class="nav-item"> <strong> 
-                        <a href="{% url "user_logout" %}" class="nav-link text-danger" >Logout  </a>
-                    </strong>         </li>
-                    
-                    <!--giriş yapmamış olanlar login veya register'ı görür-->
-                    {% else %}
-                    <li class="nav-item">
-                        <strong>
-                        <a href="{% url "user_login" %}" class="nav-link text-success" >Login</a>
-                        </strong>
-                    </li>
-
-                    <li class="nav-item">
-                        <strong>            <a href="{% url "user_register" %}" class="nav-link" style="color:green">Register</a>
-                        </strong>
-                    </li>
-
-                    {% endif %}
-            
-
-
-            
-
-                </ul>   
-
-
-                <form class = "d-flex" action="{% url "search" %}">
-                    <input class= "form-control me-0" type="text" name="q"placeholder="Anahtar Kelime">
-                    <button type="submit" class = "btn btn-secondary bg-dark ">Arama</button>
-                </form>
-
-
-            </div>
-            
-
-
-        </div>
+      <form class="d-flex" action="{% url 'search' %}">
+        <input class="form-control me-0" type="text" name="q" placeholder="Anahtar Kelime" />
+        <button type="submit" class="btn btn-secondary bg-dark">Arama</button>
+      </form>
+    </div>
+  </div>
 </nav>

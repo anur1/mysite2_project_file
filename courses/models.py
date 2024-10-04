@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils.text import slugify
-#pip install django-ckeditor #ckeditor1  
-from ckeditor.fields import RichTextField    #ckeditor2    
   
 
 
@@ -18,9 +16,9 @@ class Category(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=50)
     #description = models.TextField()
-    subtitle = models.CharField(max_length=100, default="")   #ckeditor4 
-    description = RichTextField()    #ckeditor3 
-    description_summernote = models.CharField(max_length=50000 ) #summernote-editor
+    subtitle = models.CharField(max_length=100, default="")  
+    #description = RichTextField()    #ckeditor3 - delete this
+    #description_summernote = models.CharField(max_length=50000 ) #summernote-editor
     content = models.TextField(max_length=50000) #summernote-editor4
     #imageUrl = models.CharField(max_length=50, blank=False)  
     image = models.FileField(upload_to="images", default ="")  #yüklenen dosyaları uploads/images klasörüne kaydeder. ImageField çalışmazsa FileField kullanılabilir. 
