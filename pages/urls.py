@@ -10,5 +10,6 @@ urlpatterns = [
     path ('',views.index ),
     path ('index/', views.index),
     path('contact/', views.contact ),
-    path('about', views.about),
+    path('about/', views.about),
+    path('deneme/', views.deneme, name="googlemapsdeneme"),
 ]

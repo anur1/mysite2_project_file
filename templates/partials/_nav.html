@@ -15,8 +15,15 @@
       <!-- id ile toglle bar target aynı olmalı -->
 
       <ul class="navbar-nav me-auto">
+        <!-- Kurslar linki -->
+
         <li class="nav-item">
           <a href="{% url 'index' %}" class="nav-link text-info">Kurslar</a>
+        </li>
+
+        <!-- Google Maps deneme linki -->
+        <li class="nav-item">
+          <a href="{% url 'googlemapsdeneme' %}" class="nav-link text-info">Google Maps</a>
         </li>
 
         {% if user.is_superuser %}
